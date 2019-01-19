@@ -1,4 +1,4 @@
-package mytest;
+package first;
 
 public class Bootstrap {
 
