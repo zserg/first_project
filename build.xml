@@ -36,7 +36,7 @@
         <mkdir dir="${app.jar.dir}" />
         <mkdir dir="${tests.classes.dir}" />
 
-        <!-- <project.javac srcdir="${app.src.dir}" destdir="${app.classes.dir}" /> -->
+        <project.javac srcdir="${app.src.dir}" destdir="${app.classes.dir}" />
         <jar destfile="${app.jar.pathname}" basedir="${app.classes.dir}">
             <manifest>
                 <attribute name="Main-Class" value="${app.jar.main-class}" />
