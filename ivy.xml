@@ -5,6 +5,8 @@
     </configurations>
     <dependencies>
         <dependency org="junit" name="junit" rev="4.12" conf="binaries->default" />
+        <dependency org="javax.servlet" name="servlet-api" rev="2.5"/>
+        <dependency org="org.eclipse.jetty" name="jetty-server" rev="9.4.14.v20181114"/>
     </dependencies>
 </ivy-module>
 

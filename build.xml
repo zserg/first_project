@@ -12,9 +12,9 @@
     <property name="build.dir" value="build" />
     <property name="app.classes.dir" value="${build.dir}/application/classes" />
     <property name="app.jar.dir" value="${build.dir}/application/jar" />
-    <property name="app.jar.name" value="Trx.jar" />
+    <property name="app.jar.name" value="Bootstrap.jar" />
     <property name="app.jar.pathname" value="${app.jar.dir}/${app.jar.name}" />
-    <property name="app.jar.main-class" value="org.emptyhammock.trx.TrxEdit" />
+    <property name="app.jar.main-class" value="first.Bootstrap" />
     <property name="tests.classes.dir" value="${build.dir}/tests/classes" />
     <property name="install.dir" value="${user.home}/bin" />
 
@@ -36,11 +36,18 @@
         <mkdir dir="${app.jar.dir}" />
         <mkdir dir="${tests.classes.dir}" />
 
-        <project.javac srcdir="${app.src.dir}" destdir="${app.classes.dir}" />
+        <project.javac srcdir="${app.src.dir}" destdir="${app.classes.dir}" >
+            <classpath>
+                <fileset dir="${lib.dir}" includes="**/*.jar" />
+                <path location="${app.jar.pathname}" />
+            </classpath>
+        </project.javac>
+
         <jar destfile="${app.jar.pathname}" basedir="${app.classes.dir}">
             <manifest>
                 <attribute name="Main-Class" value="${app.jar.main-class}" />
             </manifest>
+            <zipgroupfileset dir="${lib.dir}" includes="**/*.jar" />
         </jar>
 
         <project.javac srcdir="${tests.src.dir}" destdir="${tests.classes.dir}">
